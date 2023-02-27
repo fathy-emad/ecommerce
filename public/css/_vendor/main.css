@@ -1,0 +1,22 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.opacity-05{ opacity: 0.5; }
+.color-invalid{ color: #e4636f; }
+.full_width{ width: 75% }
+
+/* On screens that are 600px wide or less, the background width container is 100% */
+@media screen and (max-width: 992px) {
+    .full_width {
+        width : 100%
+    }
+}
