@@ -70,7 +70,7 @@
                             'id' => 'first_name',
                             'name' => 'first_name',
                             'value' => '',
-                            'classes' => '',
+                            'classes' => 'is-invalid',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.first_name'),
                             'data_validations' => 'required,min:2,max:25',
@@ -163,7 +163,7 @@
                             'classes' => '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.password_confirmation'),
-                            'data_validations' => 'required,min:8,complex',
+                            'data_validations' => 'required,match:password',
                             'invalid_feedback_message' => 'invalid',
                             'formText' => '',
                         ])

@@ -112,7 +112,6 @@ function ssc_wheel(d) {
         a *= ssc_stepsize / 120
     }
     ssc_scrollArray(f, -c, -a);
-    d.preventDefault()
 }
 
 function ssc_keydown(g) {
@@ -165,7 +164,6 @@ function ssc_keydown(g) {
             return true
     }
     ssc_scrollArray(c, f, l);
-    g.preventDefault()
 }
 
 function ssc_mousedown(a) {
