@@ -50,7 +50,7 @@ $dir = $lang == 'en' ? 'ltr' : 'rtl';
 
         <div class="border-bottom border-info opacity-05"></div>
 
-        <div class="d-grid col-md-9 mx-auto text-center mt-2 mb-2">
+        <div class="d-grid col-md mx-auto text-center mt-2">
             <p> @lang('common.copyRights') </p>
             <p> @lang('common.languages') :
                 <a href="{{ route('changeLocale', ['locale' => 'ar']) }}" @class(['opacity-05' => $lang != 'en'])> @lang('common.arabic') </a> ,
