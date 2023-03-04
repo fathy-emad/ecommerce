@@ -4,11 +4,18 @@ namespace App\Helpers;
 
 class Helpers
 {
+    /**
+     *
+     * get validation error message from lang file to client side validation
+     *
+     * @param array $rules
+     * @return string
+     *
+     */
     public static function getValidationErrorMessages(array $rules): string
     {
+        foreach ($rules AS $rule) $validationErrorMessages[$rule] =  __('formValidations.' . $rule);
 
-        foreach ($rules AS $rule) $validationErrorMessages[] =  [$rule => __('formValidations.' . $rule)];
-        $json_decode = json_encode($validationErrorMessages, JSON_UNESCAPED_SLASHES);
-        return $json_decode;
+        return json_encode($validationErrorMessages,JSON_UNESCAPED_UNICODE);
     }
 }
