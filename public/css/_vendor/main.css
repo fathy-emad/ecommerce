@@ -12,12 +12,12 @@ input[type=number] {
 
 .opacity-05{ opacity: 0.5; }
 .color-invalid{ color: #e4636f; }
-.full_width{ width: 75% }
+.full_width{ width: 65% }
 .form-floating>label { padding: 0.4rem .75rem; }
 .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
     height: 40px;
 }
-/* On screens that are 600px wide or less, the background width container is 100% */
+/* On screens that are 768 wide or less, the width container will fit to 100% */
 @media screen and (max-width: 992px) {
     .full_width {
         width : 100%

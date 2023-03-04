@@ -27,6 +27,7 @@ return [
     'formText' => [
         'phone' => 'Your phone must be 11 number start with 010, 011, 012, 015',
         'password' => 'Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.',
+        'email' => 'example@example.com',
     ],
 
 ];

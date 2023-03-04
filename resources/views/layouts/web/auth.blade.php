@@ -30,7 +30,7 @@ $dir = $lang == 'en' ? 'ltr' : 'rtl';
 </head>
 <body dir="{{ $dir }}">
 
-    <div class="container-sm bg-white rounded full_width">
+    <div class="container bg-white rounded shadow-lg mt-5 mb-5 bg-body full_width">
 
         <div id='loadhalaman'>
             <div class='loadball'></div>
@@ -62,6 +62,7 @@ $dir = $lang == 'en' ? 'ltr' : 'rtl';
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/_vendor/pageLoader.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/_vendor/validator.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/_vendor/main.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

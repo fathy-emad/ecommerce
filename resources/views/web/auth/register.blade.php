@@ -3,11 +3,14 @@
 @section('title', 'registration')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/web/auth/login-register.css') }}">
+<link rel="stylesheet" href="{{ asset('css/web/auth/login-register.css') }}">
 @endsection
 
 @section('content')
+@php
 
+echo Helpers::getValidationErrorMessages(["required","min","max"]);
+@endphp
     <div class="row p-3 mt-3">
 
         <div class="col-md mb-5">
@@ -31,7 +34,6 @@
                     @include('components.button', [
                         'id' => '',
                         'customAttrs' => '',
-                        'button_container_classes' => '',
                         'button_classes' => 'btn btn-outline-primary rounded-0 text-center',
                         'button_value' => __('common.facebook'),
                         'icon' => 'bi bi-facebook',
@@ -42,7 +44,6 @@
                     @include('components.button', [
                         'id' => '',
                         'customAttrs' => '',
-                        'button_container_classes' => '',
                         'button_classes' => 'btn btn-outline-danger rounded-0 text-center',
                         'button_value' => __('common.google'),
                         'icon' => 'bi bi-google',
@@ -64,34 +65,52 @@
                 <div class="row g-2 mb-3">
 
                     <div class="col-md">
-                        @include('components.inputText', [
+                        @include('components.input', [
+                            //label
                             'label' => __('formInputs.labels.first_name'),
                             'label_classes' => '',
+
+                            //input
+                            'type' => 'text',
                             'id' => 'first_name',
                             'name' => 'first_name',
                             'value' => '',
-                            'classes' => 'is-invalid',
+                            'classes' => '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.first_name'),
-                            'data_validations' => 'required,min:2,max:25',
-                            'invalid_feedback_message' => 'invalid',
-                            'formText' => '',
+                            'data_validations' => 'required,min:4,max:25',
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required","min","max"]),
+
+                            //error container
+                            'invalid_feedback_message' => '',
+
+                            //input form text
+                            'formText' => ''
                         ])
                     </div>
 
                     <div class="col-md">
-                        @include('components.inputText', [
+                        @include('components.input', [
+                            //label
                             'label' => __('formInputs.labels.last_name'),
                             'label_classes' => '',
+
+                            //input
+                            'type' => 'text',
                             'id' => 'last_name',
                             'name' => 'last_name',
                             'value' => '',
                             'classes' => '',
                             'customAttrs' => '',
-                            'placeholder' => __('formInputs.placeholders.first_name'),
-                            'data_validations' => 'required,min:2,max:25',
-                            'invalid_feedback_message' => 'invalid',
-                            'formText' => '',
+                            'placeholder' => __('formInputs.placeholders.last_name'),
+                            'data_validations' => 'required,min:4,max:25',
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required","min","max"]),
+
+                            //error container
+                            'invalid_feedback_message' => '',
+
+                            //input form text
+                            'formText' => ''
                         ])
                     </div>
                 </div>
@@ -99,18 +118,27 @@
                 <div class="row mb-3">
 
                     <div class="col-md">
-                        @include('components.inputEmail', [
+                        @include('components.input', [
+                            //label
                             'label' => __('formInputs.labels.email'),
                             'label_classes' => '',
+
+                            //input
+                            'type' => 'email',
                             'id' => 'email',
                             'name' => 'email',
                             'value' => '',
                             'classes' => '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.email'),
-                            'data_validations' => 'required,email',
-                            'invalid_feedback_message' => 'invalid',
-                            'formText' => '',
+                            'data_validations' => 'email',
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["email"]),
+
+                            //error container
+                            'invalid_feedback_message' => '',
+
+                            //input form text
+                            'formText' => __('formText.email')
                         ])
                     </div>
                 </div>
@@ -118,18 +146,27 @@
                 <div class="row mb-3">
 
                     <div class="col-md">
-                        @include('components.inputNumber', [
+                        @include('components.input', [
+                            //label
                             'label' => __('formInputs.labels.phone'),
                             'label_classes' => '',
+
+                            //input
+                            'type' => 'number',
                             'id' => 'phone',
                             'name' => 'phone',
                             'value' => '',
                             'classes' => '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.phone'),
-                            'data_validations' => 'required,length:11',
-                            'invalid_feedback_message' => 'invalid',
-                            'formText' => __('formInputs.formText.phone'),
+                            'data_validations' => 'length:11,phone',
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["length", "phone"]),
+
+                            //error container
+                            'invalid_feedback_message' => '',
+
+                            //input form text
+                            'formText' => __('formInputs.formText.phone')
                         ])
                     </div>
                 </div>
@@ -139,71 +176,101 @@
 
                     <div class="col-md">
                         @include('components.inputPassword', [
+                            //label
                             'label' => __('formInputs.labels.password'),
                             'label_classes' => '',
+
+                            //input
                             'id' => 'password',
                             'name' => 'password',
                             'value' => '',
                             'classes' => '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.password'),
-                            'data_validations' => 'required,min:8,complex',
-                            'invalid_feedback_message' => 'invalid',
+                            'data_validations' => 'min:8,complex',
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["min", "complex"]),
+
+                            //error container
+                            'invalid_feedback_message' => '',
+
+                            //input form text
                             'formText' => '',
+
+                            //button
+                            'buttonId' => '',
+                            'buttonCustomAttrs' => 'showPassword',
+                            'button_classes' => 'btn btn-outline-primary',
+                            'button_value' => '',
+                            'icon' => 'bi bi-eye-fill',
+                            'type' => 'button'
+
                         ])
                     </div>
 
                     <div class="col-md">
                         @include('components.inputPassword', [
+                            //label
                             'label' => __('formInputs.labels.password_confirmation'),
                             'label_classes' => '',
+
+                            //input
                             'id' => 'password_confirmation',
                             'name' => 'password_confirmation',
                             'value' => '',
                             'classes' => '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.password_confirmation'),
-                            'data_validations' => 'required,match:password',
-                            'invalid_feedback_message' => 'invalid',
+                            'data_validations' => 'match:password',
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["match"]),
+
+                            //error container
+                            'invalid_feedback_message' => '',
+
+                            //input form text
                             'formText' => '',
+
+                            //button
+                            'buttonId' => '',
+                            'buttonCustomAttrs' => 'showPassword',
+                            'button_classes' => 'btn btn-outline-primary',
+                            'button_value' => '',
+                            'icon' => 'bi bi-eye-fill',
+                            'type' => 'button'
                         ])
                     </div>
-
-                    <div class="invalid-feedback"> invalid </div>
                     <div class="form-text mb-3">@lang('formInputs.formText.password')</div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col-md-12">
-
-                        @include('components.inputRadio', [
+                        @include('components.inputCheck', [
                             'label' => __('formInputs.labels.male'),
                             'label_classes' => '',
+                            'type' => 'radio',
                             'id' => 'genderMale',
                             'name' => 'gender[]',
-                            'checked' => 'checked',
                             'value' => '',
                             'classes' => '',
-                            'customAttrs' => '',
-                            'placeholder' => '',
+                            'customAttrs' => 'checked',
                             'data_validations' => '',
+                            'validationErrorMessages' => '',
                             'invalid_feedback_message' => '',
                             'formText' => '',
                         ])
                     </div>
 
                     <div class="col-md-12">
-                        @include('components.inputRadio', [
+                        @include('components.inputCheck', [
                             'label' => __('formInputs.labels.female'),
                             'label_classes' => '',
+                            'type' => 'radio',
                             'id' => 'genderFemale',
                             'name' => 'gender[]',
-                            'checked' => '',
                             'value' => '',
                             'classes' => '',
                             'customAttrs' => '',
-                            'placeholder' => '',
                             'data_validations' => '',
+                            'validationErrorMessages' => '',
                             'invalid_feedback_message' => '',
                             'formText' => '',
                         ])
@@ -235,7 +302,7 @@
                 </div>
             </div>
 
-            <div class="row mb-1 p-5">
+            <div class="row mb-1 p-3">
                 <div class="col-md image_signup rounded-1" style="background-image: url({{ asset('images/web/auth/image_signup.jpg') }})">
                     <div class="image_signup_free_space"></div>
                     <div class="p-1">
@@ -259,5 +326,5 @@
 @endsection
 
 @section('scripts')
-{{--    <script type="text/javascript" src="{{ asset('') }}"></script>--}}
+<script type="text/javascript" src="{{ asset('js/web/auth/register.js') }}"></script>
 @endsection
