@@ -1,6 +1,6 @@
 @extends('layouts.web.auth')
 
-@section('title', 'registration')
+@section('title', 'Sign up')
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/web/auth/login-register.css') }}">
@@ -31,7 +31,7 @@
                 @include('components.button', [
                     'id' => '',
                     'customAttrs' => '',
-                    'button_classes' => 'btn btn-outline-primary rounded-0 text-center',
+                    'button_classes' => 'btn btn-outline-primary rounded-0 text-center w-100',
                     'button_value' => __('common.facebook'),
                     'icon' => 'bi bi-facebook',
                     'type' => 'button'
@@ -41,7 +41,7 @@
                 @include('components.button', [
                     'id' => '',
                     'customAttrs' => '',
-                    'button_classes' => 'btn btn-outline-danger rounded-0 text-center',
+                    'button_classes' => 'btn btn-outline-danger rounded-0 text-center w-100',
                     'button_value' => __('common.google'),
                     'icon' => 'bi bi-google',
                     'type' => 'button'
@@ -276,12 +276,11 @@
 
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md border-start border-bottom border-info p-1 text-center">
                     @include('components.button', [
                         'id' => '',
                         'customAttrs' => '',
-                        'button_container_classes' => 'border-start border-bottom border-info p-1 text-center ',
-                        'button_classes' => 'btn-primary rounded-0 ',
+                        'button_classes' => 'btn-primary rounded-0 w-100',
                         'button_value' => __('common.register'),
                         'icon' => '',
                         'type' => 'submit'
@@ -322,5 +321,5 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript" src="{{ asset('js/web/auth/register.js') }}"></script>
+
 @endsection

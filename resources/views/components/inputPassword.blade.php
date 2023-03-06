@@ -40,30 +40,32 @@
     {{ $formText }}
 </div>
 
-{{--//label--}}
-{{--'label' => '',--}}
-{{--'label_classes' => '',--}}
+{{--@include('components.inputPassword', [--}}
+{{--    //label--}}
+{{--    'label' => __('formInputs.labels.password_confirmation'),--}}
+{{--    'label_classes' => '',--}}
 
-{{--//input--}}
-{{--'id' => '',--}}
-{{--'name' => '',--}}
-{{--'value' => '',--}}
-{{--'classes' => '',--}}
-{{--'customAttrs' => '',--}}
-{{--'placeholder' => '',--}}
-{{--'data_validations' => '',--}}
-{{--'validationErrorMessages' => Helpers::getValidationErrorMessages(["min", "complex"]),--}}
+{{--    //input--}}
+{{--    'id' => 'password_confirmation',--}}
+{{--    'name' => 'password_confirmation',--}}
+{{--    'value' => '',--}}
+{{--    'classes' => '',--}}
+{{--    'customAttrs' => '',--}}
+{{--    'placeholder' => __('formInputs.placeholders.password_confirmation'),--}}
+{{--    'data_validations' => 'match:password',--}}
+{{--    'validationErrorMessages' => Helpers::getValidationErrorMessages(["match"]),--}}
 
-{{--//error container--}}
-{{--'invalid_feedback_message' => '',--}}
+{{--    //error container--}}
+{{--    'invalid_feedback_message' => '',--}}
 
-{{--//input form text--}}
-{{--'formText' => '',--}}
+{{--    //input form text--}}
+{{--    'formText' => '',--}}
 
-{{--//button--}}
-{{--'buttonId' => '',--}}
-{{--'buttonCustomAttrs' => '',--}}
-{{--'button_classes' => '',--}}
-{{--'button_value' => '',--}}
-{{--'icon' => '',--}}
-{{--'type' => ''--}}
+{{--    //button--}}
+{{--    'buttonId' => '',--}}
+{{--    'buttonCustomAttrs' => 'showPassword',--}}
+{{--    'button_classes' => 'btn btn-outline-primary',--}}
+{{--    'button_value' => '',--}}
+{{--    'icon' => 'bi bi-eye-fill',--}}
+{{--    'type' => 'button'--}}
+{{--])--}}

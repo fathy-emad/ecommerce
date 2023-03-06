@@ -6,10 +6,12 @@
     &nbsp;<i class="{{ $icon }}"></i>
 </button>
 
-{{--'id' => '',--}}
-{{--'customAttrs' => '',--}}
-{{--'button_classes' => '',--}}
-{{--'button_value' => '',--}}
-{{--'icon' => '',--}}
-{{--'type' => ''--}}
+{{--@include('components.button', [--}}
+{{--    'id' => '',--}}
+{{--    'customAttrs' => '',--}}
+{{--    'button_classes' => 'btn-primary rounded-0 w-100',--}}
+{{--    'button_value' => __('common.register'),--}}
+{{--    'icon' => '',--}}
+{{--    'type' => 'submit'--}}
+{{--])--}}
 

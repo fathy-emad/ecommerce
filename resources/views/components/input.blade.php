@@ -27,24 +27,26 @@
     </div>
 </div>
 
-{{--//label--}}
-{{--'label' => '',--}}
-{{--'label_classes' => '',--}}
+{{--@include('components.input', [--}}
+{{--    //label--}}
+{{--    'label' => __('formInputs.labels.phone'),--}}
+{{--    'label_classes' => '',--}}
 
-{{--//input--}}
-{{--'type' => '',--}}
-{{--'id' => '',--}}
-{{--'name' => '',--}}
-{{--'value' => '',--}}
-{{--'classes' => '',--}}
-{{--'customAttrs' => '',--}}
-{{--'placeholder' => '',--}}
-{{--'data_validations' => '',--}}
-{{--'validationErrorMessages' => Helpers::getValidationErrorMessages(["required","min","max"]),--}}
+{{--    //input--}}
+{{--    'type' => 'number',--}}
+{{--    'id' => 'phone',--}}
+{{--    'name' => 'phone',--}}
+{{--    'value' => '',--}}
+{{--    'classes' => '',--}}
+{{--    'customAttrs' => '',--}}
+{{--    'placeholder' => __('formInputs.placeholders.phone'),--}}
+{{--    'data_validations' => 'phone',--}}
+{{--    'validationErrorMessages' => Helpers::getValidationErrorMessages(["phone"]),--}}
 
-{{--//error container--}}
-{{--'invalid_feedback_message' => '',--}}
+{{--    //error container--}}
+{{--    'invalid_feedback_message' => '',--}}
 
-{{--//input form text--}}
-{{--'formText' => ''--}}
+{{--    //input form text--}}
+{{--    'formText' => __('formInputs.formText.phone')--}}
+{{--])--}}
 
