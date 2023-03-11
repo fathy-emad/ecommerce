@@ -27,8 +27,7 @@ class RegistrationRequest extends FormRequest
             'last_name' => 'min:4|max:25|string',
             'email' => 'email',
             'phone' => 'digits:11',
-            'password' => Password::min(8)->mixedCase(),
-            'password_confirmation' => 'confirmed',
+            'password' => [Password::min(8), 'confirmed'],
         ];
     }
 
@@ -50,7 +49,7 @@ class RegistrationRequest extends FormRequest
             'email.email' => __('validation.email'),
             'phone.digits' => __('validation.digits'),
             'password.min' => __('validation.min'),
-            'password_confirmation' => __('validation.confirmed'),
+            'password.confirmed' => __('validation.confirmed'),
         ];
     }
 }

@@ -30,4 +30,17 @@ class Helpers
 
         return json_encode($validationErrorMessages ?? [],JSON_UNESCAPED_UNICODE);
     }
+
+    public static function getValidationErrorMessage(object $errors, string $inputName): string
+    {
+        if ($errors->get($inputName)) return implode(', ', $errors->get($inputName));
+        return '';
+    }
+
+    public static function getValidationErrorClass(object $errors, string $inputName): string
+    {
+        if ($errors->get($inputName)) return 'is-invalid';
+
+        return '';
+    }
 }

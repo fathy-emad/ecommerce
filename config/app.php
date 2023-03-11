@@ -210,6 +210,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
          'Helpers' => App\Helpers\Helpers::class,
+         'Constants' => App\Constants\Genders::class,
     ])->toArray(),
 
 ];

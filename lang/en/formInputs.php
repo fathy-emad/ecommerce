@@ -9,8 +9,6 @@ return [
         'phone' => 'Phone',
         'password' => 'Password',
         'password_confirmation' => 'Password confirmation',
-        'male' => 'Male',
-        'female' => 'Female',
         'email_phone' => 'Email / Phone',
         'remember' => 'Remember me'
     ],

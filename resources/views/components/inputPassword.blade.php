@@ -42,30 +42,31 @@
 
 {{--@include('components.inputPassword', [--}}
 {{--    //label--}}
-{{--    'label' => __('formInputs.labels.password_confirmation'),--}}
+{{--    'label' => __('formInputs.labels.password'),--}}
 {{--    'label_classes' => '',--}}
 
 {{--    //input--}}
-{{--    'id' => 'password_confirmation',--}}
-{{--    'name' => 'password_confirmation',--}}
+{{--    'id' => 'password',--}}
+{{--    'name' => 'password',--}}
 {{--    'value' => '',--}}
-{{--    'classes' => '',--}}
+{{--    'classes' => Helpers::getValidationErrorClass($errors, 'password'),--}}
 {{--    'customAttrs' => '',--}}
-{{--    'placeholder' => __('formInputs.placeholders.password_confirmation'),--}}
-{{--    'data_validations' => 'match:password',--}}
-{{--    'validationErrorMessages' => Helpers::getValidationErrorMessages(["match"]),--}}
+{{--    'placeholder' => __('formInputs.placeholders.password'),--}}
+{{--    'data_validations' => 'min.string:8',--}}
+{{--    'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string"]),--}}
 
 {{--    //error container--}}
-{{--    'invalid_feedback_message' => '',--}}
+{{--    'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'password'),--}}
 
 {{--    //input form text--}}
 {{--    'formText' => '',--}}
 
 {{--    //button--}}
-{{--    'buttonId' => '',--}}
+{{--    'buttonId' => 'showPassword',--}}
 {{--    'buttonCustomAttrs' => 'showPassword',--}}
 {{--    'button_classes' => 'btn btn-outline-primary',--}}
 {{--    'button_value' => '',--}}
 {{--    'icon' => 'bi bi-eye-fill',--}}
 {{--    'type' => 'button'--}}
+
 {{--])--}}

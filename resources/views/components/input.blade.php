@@ -37,14 +37,14 @@
 {{--    'id' => 'phone',--}}
 {{--    'name' => 'phone',--}}
 {{--    'value' => '',--}}
-{{--    'classes' => '',--}}
+{{--    'classes' => Helpers::getValidationErrorClass($errors, 'phone'),--}}
 {{--    'customAttrs' => '',--}}
 {{--    'placeholder' => __('formInputs.placeholders.phone'),--}}
-{{--    'data_validations' => 'phone',--}}
-{{--    'validationErrorMessages' => Helpers::getValidationErrorMessages(["phone"]),--}}
+{{--    'data_validations' => 'digits:11,phone',--}}
+{{--    'validationErrorMessages' => Helpers::getValidationErrorMessages(["digits", "phone"]),--}}
 
 {{--    //error container--}}
-{{--    'invalid_feedback_message' => '',--}}
+{{--    'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'phone'),--}}
 
 {{--    //input form text--}}
 {{--    'formText' => __('formInputs.formText.phone')--}}

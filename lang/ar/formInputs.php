@@ -9,8 +9,6 @@ return [
         'phone' => 'رقم الموبايل',
         'password' => 'كلمة السر',
         'password_confirmation' => 'تاكيد كلمة السر',
-        'male' => 'ذكر',
-        'female' => 'انثى',
         'email_phone' => 'البريد الالكترونى / الموبايل',
         'remember' => 'تذكرنى'
     ],
