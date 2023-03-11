@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <div class="row g-2 mb-3">
+                <div class="row g-2">
 
                     <div class="col-md text-center">
                         @include('components.inputPassword', [
@@ -121,6 +121,35 @@
                             'type' => 'button'
 
                         ])
+                    </div>
+                </div>
+                <div class="row g-2 mb-3">
+
+                    <div class="col-md">
+                        @include('components.inputCheck', [
+                            //label
+                            'label' => __('formInputs.labels.remember'),
+                            'label_classes' => '',
+
+                            //input
+                            'type' => 'checkbox',
+                            'id' => 'remember',
+                            'name' => 'remember',
+                            'value' => '',
+                            'classes' => '',
+                            'customAttrs' => '',
+                            'data_validations' => '',
+                            'validationErrorMessages' => '',
+
+                            //error message
+                            'invalid_feedback_message' => '',
+
+                            //form text
+                            'formText' => '',
+                        ])
+                    </div>
+                    <div class="col-md text-end">
+                        <a href="#"> @lang('web/login.forgotPassword') </a>
                     </div>
                 </div>
 

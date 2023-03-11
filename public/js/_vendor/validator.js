@@ -1,69 +1,84 @@
-const basicRules = ['required', 'min', 'max', 'length', 'match', 'complex', 'email', 'phone'];
+const basicRules = ['required', 'min.string', 'max.string', 'email', 'digits', 'phone', 'length', 'confirmed'];
+let formValid = true;
 
 const validationFuncs = {
 
-    "required" : (value, ruleValue = null, errorMessage) => {
+    "required" : (...dataArray) => {
+
+        let [value, , errorMessage] = dataArray;
 
         if (! value.trim(" ").length) return errorMessage;
     },
 
-    "min" : (value, ruleValue, errorMessage) => {
+    "min.string" : (...dataArray) => {
+        let [value, ruleValue, errorMessage] = dataArray;
 
-        errorMessage = errorMessage.replace(':value', ruleValue);
+        errorMessage = errorMessage.replace(':min', ruleValue);
 
         if (value.trim(" ").length < ruleValue) return errorMessage;
     },
 
-    "max" : (value, ruleValue, errorMessage) => {
+    "max.string" : (...dataArray) => {
 
-        errorMessage = errorMessage.replace(':value', ruleValue);
+        let [value, ruleValue, errorMessage] = dataArray;
+
+        errorMessage = errorMessage.replace(':max', ruleValue);
 
         if (value.trim(" ").length > ruleValue) return errorMessage;
     },
 
-    "length" : (value, ruleValue, errorMessage) => {
+    "email" : (...dataArray) => {
 
-        errorMessage = errorMessage.replace(':value', ruleValue);
-
-        if (value.length != ruleValue) return errorMessage;
-    },
-
-    "email" : (value, ruleValue = null, errorMessage) => {
+        let [value, , errorMessage] = dataArray;
 
         let re = /(^\S)(\w+)@([a-z]+).(com|org|gov|edu|net|mil)(.[a-z]{2})?/g;
 
         if (! value.match(re)) return errorMessage;
     },
 
-    "phone" : (value, ruleValue = null, errorMessage) => {
+    "digits" : (...dataArray) => {
 
-        let re = /^(011|012|015|010)(\d{8})$/g;
+        let [value, ruleValue, errorMessage] = dataArray;
+
+        let re = /\D/g;
+
+        if (value.match(re) || value.length != 11) return errorMessage.replace(':digits', ruleValue);
+    },
+
+    "phone" : (...dataArray) => {
+
+        let [value, , errorMessage] = dataArray;
+
+        let re = /^(011|012|015|010)/g;
 
         if (! value.match(re)) return errorMessage;
     },
 
-    "complex" : (value, ruleValue = null, errorMessage) => {
+    "length" : (...dataArray) => {
 
-        let capital = /[A-Z]/g;
-        let small = /[a-z]/g;
-        let digit = /\d/g;
-        let specChar = /\W/g;
+        let [value, ruleValue, errorMessage] = dataArray;
 
-        if (! value.match(capital) || ! value.match(small) || ! value.match(digit) || value.match(specChar)) return errorMessage;
+        errorMessage = errorMessage.replace(':value', ruleValue);
 
+        if (value.length != ruleValue) return errorMessage;
     },
 
-    "match" : (value, id, errorMessage) => {
+    "confirmed" : (...dataArray) => {
+
+        let [value, id, errorMessage] = dataArray;
 
         let idValue = $('#' + id).val();
-        let label = $('label[for=' + id + ']').text();
-
-        errorMessage = errorMessage.replace(':value', label);
 
         if (value !== idValue) return errorMessage;
     }
 }
 
+function resetValidation() {
+
+    $('[data-validation]').removeClass('is-invalid');
+    $('.invalid-feedback').empty().hide();
+    formValid = true;
+}
 
 function setClassMessageInvalid(element, errorContainer, invalidMessage)
 {
@@ -81,47 +96,32 @@ function setClassMessageInvalid(element, errorContainer, invalidMessage)
     element.addClass('is-invalid');
 }
 
-let formValid = true;
-
 $('button[type=submit]').on('click', function (e) {
 
-    let form = $(this).closest('form'),
-        validationElements = $('[data-validation]'),
-        errorMessageCont = $('.invalid-feedback');
-
-
     //Reset validation
-    validationElements.removeClass('is-invalid');
-    errorMessageCont.empty().hide();
-    formValid = true;
+    resetValidation();
 
-    validationElements.each(function () {
+    $('[data-validation]').each(function () {
 
         //Get element data
-        let element = $(this),
-            id = $(this).attr('id'),
-            value = $(this).val(),
-            validations = $(this).attr('data-validation').split(","),
-            errorContainer = $('[invalid-feedback=' + id + ']'),
-            errorMessages = JSON.parse($(this).attr('data-validation-error-messages') || '[]');
+        let element = $(this), id = element.attr('id'), value = element.val(),
+            validations = element.attr('data-validation').split(","), errorContainer = $('[invalid-feedback=' + id + ']'),
+            errorMessages = JSON.parse(element.attr('data-validation-error-messages') || '[]');
 
         for(const i in validations)
         {
             if (! validations[i]) continue;
 
+            let validationSplit = validations[i].split(":"), ruleValue = validationSplit[1], rule = validationSplit[0];
 
-            let validationSplit = validations[i].split(":"),
-                rule = validationSplit[0],
-                ruleValue = validationSplit[1],
-                invalidMessage = '';
+            if (! basicRules.includes(validations[i])) basicRules.push(validations[i]);
 
-            //Catch invalid value
-            if (basicRules.includes(rule)) invalidMessage = validationFuncs[rule](value, ruleValue, errorMessages[rule]);
-            else invalidMessage = window[rule]();
+            //run rule method and get invalid if found
+            let foundInvalidMessage = validationFuncs[rule](value, ruleValue, errorMessages[rule]);
 
             //Set class (is-invalid) and invalid message in invalid-feedback div
-            if (invalidMessage){
-                setClassMessageInvalid(element, errorContainer, invalidMessage);
+            if (foundInvalidMessage){
+                setClassMessageInvalid(element, errorContainer, foundInvalidMessage);
                 formValid = false;
             }
 

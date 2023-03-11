@@ -11,7 +11,8 @@ return [
         'password_confirmation' => 'تاكيد كلمة السر',
         'male' => 'ذكر',
         'female' => 'انثى',
-        'email_phone' => 'البريد الالكترونى / الموبايل'
+        'email_phone' => 'البريد الالكترونى / الموبايل',
+        'remember' => 'تذكرنى'
     ],
 
     'placeholders' => [

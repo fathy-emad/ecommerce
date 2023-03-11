@@ -11,7 +11,8 @@ return [
         'password_confirmation' => 'Password confirmation',
         'male' => 'Male',
         'female' => 'Female',
-        'email_phone' => 'Email / Phone'
+        'email_phone' => 'Email / Phone',
+        'remember' => 'Remember me'
     ],
 
     'placeholders' => [

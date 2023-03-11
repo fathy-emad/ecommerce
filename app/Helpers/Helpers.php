@@ -14,7 +14,19 @@ class Helpers
      */
     public static function getValidationErrorMessages(array $rules = []): string
     {
-        foreach ($rules AS $rule) $validationErrorMessages[$rule] =  __('formValidations.' . $rule);
+
+        $lang = app()->getLocale();
+
+        $rulesFile = include "../lang/$lang/validation.php";
+
+        foreach ($rules AS $rule) {
+
+            $explodeRule = explode(".", $rule);
+            $ruleName = $explodeRule[0];
+            $ruleType = $explodeRule[1] ?? '';
+
+            $validationErrorMessages[$rule] = is_string($rulesFile[$ruleName]) ? $rulesFile[$ruleName] : $rulesFile[$ruleName][$ruleType];
+        }
 
         return json_encode($validationErrorMessages ?? [],JSON_UNESCAPED_UNICODE);
     }

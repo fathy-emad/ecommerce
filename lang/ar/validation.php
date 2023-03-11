@@ -32,7 +32,7 @@ return [
         'string' => 'The :attribute field must be between :min and :max characters.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute field confirmation does not match.',
+    'confirmed' => 'هذا الحقل لا يطابق كلمة السر',
     'current_password' => 'The password is incorrect.',
     'date' => 'The :attribute field must be a valid date.',
     'date_equals' => 'The :attribute field must be a date equal to :date.',
@@ -41,13 +41,13 @@ return [
     'declined' => 'The :attribute field must be declined.',
     'declined_if' => 'The :attribute field must be declined when :other is :value.',
     'different' => 'The :attribute field and :other must be different.',
-    'digits' => 'The :attribute field must be :digits digits.',
+    'digits' => 'هذا الحقل يجب ان يكون :digits رقما',
     'digits_between' => 'The :attribute field must be between :min and :max digits.',
     'dimensions' => 'The :attribute field has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
     'doesnt_end_with' => 'The :attribute field must not end with one of the following: :values.',
     'doesnt_start_with' => 'The :attribute field must not start with one of the following: :values.',
-    'email' => 'The :attribute field must be a valid email address.',
+    'email' => 'برجاء التاكد من الايميل الصحيح',
     'ends_with' => 'The :attribute field must end with one of the following: :values.',
     'enum' => 'The selected :attribute is invalid.',
     'exists' => 'The selected :attribute is invalid.',
@@ -90,8 +90,8 @@ return [
     'max' => [
         'array' => 'The :attribute field must not have more than :max items.',
         'file' => 'The :attribute field must not be greater than :max kilobytes.',
-        'numeric' => 'The :attribute field must not be greater than :max.',
-        'string' => 'The :attribute field must not be greater than :max characters.',
+        'numeric' => 'هذا الحقل يجب ان لا اكثر من :max',
+        'string' => 'هذا الحقل على الاكثر :max حرف',
     ],
     'max_digits' => 'The :attribute field must not have more than :max digits.',
     'mimes' => 'The :attribute field must be a file of type: :values.',
@@ -99,8 +99,8 @@ return [
     'min' => [
         'array' => 'The :attribute field must have at least :min items.',
         'file' => 'The :attribute field must be at least :min kilobytes.',
-        'numeric' => 'The :attribute field must be at least :min.',
-        'string' => 'The :attribute field must be at least :min characters.',
+        'numeric' => 'هذا الحقل يجب ان يكون اقل من :min',
+        'string' => 'هذا الحقل يجب ان لا يكون اقل من :min حروف',
     ],
     'min_digits' => 'The :attribute field must have at least :min digits.',
     'missing' => 'The :attribute field must be missing.',
@@ -142,7 +142,7 @@ return [
         'string' => 'The :attribute field must be :size characters.',
     ],
     'starts_with' => 'The :attribute field must start with one of the following: :values.',
-    'string' => 'The :attribute field must be a string.',
+    'string' => 'هذا الحقل يجب ان يكون احرف فقط',
     'timezone' => 'The :attribute field must be a valid timezone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
@@ -150,6 +150,18 @@ return [
     'url' => 'The :attribute field must be a valid URL.',
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
+
+    /*
+    |--------------------------------------------------------------------------
+    | My Custom Validations
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify custom validation messages
+    |
+    */
+
+    'phone' => 'هذا الحقل لابد ان يبدا ب 011 | 012 | 010 | 015',
+
 
     /*
     |--------------------------------------------------------------------------

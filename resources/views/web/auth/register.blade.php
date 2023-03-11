@@ -29,7 +29,7 @@
         <div class="row g-2 mb-4">
             <div class="col-md">
                 @include('components.button', [
-                    'id' => '',
+                    'id' => 'facebook',
                     'customAttrs' => '',
                     'button_classes' => 'btn btn-outline-primary rounded-0 text-center w-100',
                     'button_value' => __('common.facebook'),
@@ -39,7 +39,7 @@
             </div>
             <div class="col-md">
                 @include('components.button', [
-                    'id' => '',
+                    'id' => 'google',
                     'customAttrs' => '',
                     'button_classes' => 'btn btn-outline-danger rounded-0 text-center w-100',
                     'button_value' => __('common.google'),
@@ -57,7 +57,28 @@
             </div>
         </div>
 
-        <form>
+        @if ($errors->any())
+{{--            @php--}}
+{{--//                echo "<pre>";--}}
+{{--//                print_r($errors->get('first_name'));--}}
+{{--//                echo "</pre>";--}}
+{{--            Helpers::getValidationErrorMessages();--}}
+{{--            @endphp--}}
+
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @error('first_name')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
+        <form method="post" action="{{ route('web.register') }}"> @csrf
 
             <div class="row g-2 mb-3">
 
@@ -75,8 +96,10 @@
                         'classes' => '',
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.first_name'),
-                        'data_validations' => 'min:4,max:25',
-                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min","max"]),
+//                        'data_validations' => 'min.string:4,max.string:25',
+//                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string", "max.string"]),
+                        'data_validations' => '',
+                        'validationErrorMessages' => '',
 
                         //error container
                         'invalid_feedback_message' => '',
@@ -100,8 +123,10 @@
                         'classes' => '',
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.last_name'),
-                        'data_validations' => 'min:4,max:25',
-                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min","max"]),
+//                        'data_validations' => 'min.string:4,max.string:25',
+//                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string", "max.string"]),
+                        'data_validations' => '',
+                        'validationErrorMessages' => '',
 
                         //error container
                         'invalid_feedback_message' => '',
@@ -128,8 +153,10 @@
                         'classes' => '',
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.email'),
-                        'data_validations' => 'email',
-                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["email"]),
+//                        'data_validations' => 'email',
+//                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["email"]),
+                        'data_validations' => '',
+                        'validationErrorMessages' => '',
 
                         //error container
                         'invalid_feedback_message' => '',
@@ -156,8 +183,10 @@
                         'classes' => '',
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.phone'),
-                        'data_validations' => 'phone',
-                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["phone"]),
+//                        'data_validations' => 'digits:11,phone',
+//                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["digits", "phone"]),
+                        'data_validations' => '',
+                        'validationErrorMessages' => '',
 
                         //error container
                         'invalid_feedback_message' => '',
@@ -184,8 +213,10 @@
                         'classes' => '',
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.password'),
-                        'data_validations' => 'min:8,complex',
-                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min", "complex"]),
+//                        'data_validations' => 'min.string:8',
+//                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string"]),
+                        'data_validations' => '',
+                        'validationErrorMessages' => '',
 
                         //error container
                         'invalid_feedback_message' => '',
@@ -194,7 +225,7 @@
                         'formText' => '',
 
                         //button
-                        'buttonId' => '',
+                        'buttonId' => 'kk',
                         'buttonCustomAttrs' => 'showPassword',
                         'button_classes' => 'btn btn-outline-primary',
                         'button_value' => '',
@@ -217,8 +248,10 @@
                         'classes' => '',
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.password_confirmation'),
-                        'data_validations' => 'match:password',
-                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["match"]),
+//                        'data_validations' => 'confirmed:password',
+//                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["confirmed"]),
+                        'data_validations' => '',
+                        'validationErrorMessages' => '',
 
                         //error container
                         'invalid_feedback_message' => '',
@@ -227,7 +260,7 @@
                         'formText' => '',
 
                         //button
-                        'buttonId' => '',
+                        'buttonId' => 'nn',
                         'buttonCustomAttrs' => 'showPassword',
                         'button_classes' => 'btn btn-outline-primary',
                         'button_value' => '',
@@ -241,8 +274,11 @@
             <div class="row mb-3">
                 <div class="col-md-12">
                     @include('components.inputCheck', [
+                        //label
                         'label' => __('formInputs.labels.male'),
                         'label_classes' => '',
+
+                        //input
                         'type' => 'radio',
                         'id' => 'genderMale',
                         'name' => 'gender[]',
@@ -251,15 +287,22 @@
                         'customAttrs' => 'checked',
                         'data_validations' => '',
                         'validationErrorMessages' => '',
+
+                        //error message
                         'invalid_feedback_message' => '',
+
+                        //form text
                         'formText' => '',
                     ])
                 </div>
 
                 <div class="col-md-12">
                     @include('components.inputCheck', [
+                        //label
                         'label' => __('formInputs.labels.female'),
                         'label_classes' => '',
+
+                        //input
                         'type' => 'radio',
                         'id' => 'genderFemale',
                         'name' => 'gender[]',
@@ -268,7 +311,11 @@
                         'customAttrs' => '',
                         'data_validations' => '',
                         'validationErrorMessages' => '',
+
+                        //error message
                         'invalid_feedback_message' => '',
+
+                        //form text
                         'formText' => '',
                     ])
                 </div>
