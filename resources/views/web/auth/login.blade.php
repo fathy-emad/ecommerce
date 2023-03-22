@@ -69,18 +69,18 @@
                             'label_classes' => '',
 
                             //input
-                            'type' => 'email',
-                            'id' => 'email',
-                            'name' => 'email',
+                            'type' => 'text',
+                            'id' => 'email_phone',
+                            'name' => 'email_phone',
                             'value' => '',
-                            'classes' => '',
+                            'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'email_phone'),
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.email_phone'),
                             'data_validations' => 'required',
-                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required"]),
+                            'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["required"]),
 
                             //error container
-                            'invalid_feedback_message' => '',
+                            'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'email_phone'),
 
                             //input form text
                             'formText' => __('formInputs.formText.email_phone')
@@ -100,20 +100,20 @@
                             'id' => 'password',
                             'name' => 'password',
                             'value' => '',
-                            'classes' => '',
+                            'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'password'),
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.password'),
                             'data_validations' => 'required',
-                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required"]),
+                            'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["required"]),
 
                             //error container
-                            'invalid_feedback_message' => '',
+                            'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'password'),
 
                             //input form text
                             'formText' => '',
 
                             //button
-                            'buttonId' => '',
+                            'buttonId' => 'showPassword',
                             'buttonCustomAttrs' => 'showPassword',
                             'button_classes' => 'btn btn-outline-primary',
                             'button_value' => '',
@@ -128,14 +128,14 @@
                     <div class="col-md">
                         @include('components.inputCheck', [
                             //label
-                            'label' => __('formInputs.labels.remember'),
+                            'label' => __("formInputs.labels.remember"),
                             'label_classes' => '',
 
                             //input
                             'type' => 'checkbox',
                             'id' => 'remember',
                             'name' => 'remember',
-                            'value' => '',
+                            'value' => 1,
                             'classes' => '',
                             'customAttrs' => '',
                             'data_validations' => '',

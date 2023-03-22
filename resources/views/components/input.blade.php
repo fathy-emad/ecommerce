@@ -3,7 +3,7 @@
         type="{{ $type }}"
         class="form-control {{ $classes }}"
         id="{{ $id }}" name="{{ $name }}"
-        value="{{ $value }}"
+        value="{{ $value ?: old($name) }}"
         placeholder="{{ $placeholder }}"
         data-validation="{{ $data_validations }}"
         data-validation-error-messages="{{ $validationErrorMessages }}"

@@ -63,6 +63,7 @@ $dir = $lang == 'en' ? 'ltr' : 'rtl';
     <script type="text/javascript" src="{{ asset('js/_vendor/pageLoader.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/_vendor/validator.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/_vendor/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/web/main.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

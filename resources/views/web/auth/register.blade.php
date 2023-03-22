@@ -30,7 +30,7 @@
             <div class="col-md">
                 @include('components.button', [
                     'id' => 'facebook',
-                    'customAttrs' => '',
+                    'customAttrs' => 'socialAuth=facebook ',
                     'button_classes' => 'btn btn-outline-primary rounded-0 text-center w-100',
                     'button_value' => __('common.facebook'),
                     'icon' => 'bi bi-facebook',
@@ -40,7 +40,7 @@
             <div class="col-md">
                 @include('components.button', [
                     'id' => 'google',
-                    'customAttrs' => '',
+                    'customAttrs' => 'socialAuth=google ',
                     'button_classes' => 'btn btn-outline-danger rounded-0 text-center w-100',
                     'button_value' => __('common.google'),
                     'icon' => 'bi bi-google',
@@ -184,7 +184,7 @@
                         'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'password'),
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.password'),
-                        'data_validations' => 'min.string:8|confirmed:password_confirmation',
+                        'data_validations' => 'min.string:8,confirmed:password_confirmation',
                         'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["min.string", "confirmed"]),
 
                         //error container

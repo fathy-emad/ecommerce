@@ -7,7 +7,7 @@
             id="{{ $id }}"
             name="{{ $name }}"
             placeholder="{{ $placeholder }}"
-            value="{{ $value }}"
+            value=""
             data-validation="{{ $data_validations }}"
             data-validation-error-messages="{{ $validationErrorMessages }}"
             {{ $customAttrs }}>

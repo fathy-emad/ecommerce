@@ -25,8 +25,8 @@ class RegistrationRequest extends FormRequest
         return [
             'first_name' => 'min:4|max:25|string',
             'last_name' => 'min:4|max:25|string',
-            'email' => 'email',
-            'phone' => 'digits:11',
+            'email' => 'email|unique:users',
+            'phone' => 'digits:11|unique:users',
             'password' => [Password::min(8), 'confirmed'],
         ];
     }
@@ -43,12 +43,19 @@ class RegistrationRequest extends FormRequest
             'first_name.min' => __('validation.min'),
             'first_name.max' => __('validation.max'),
             'first_name.string' => __('validation.string'),
+
             'last_name.min' => __('validation.min'),
             'last_name.max' => __('validation.max'),
             'last_name.string' => __('validation.string'),
+
             'email.email' => __('validation.email'),
+            'email.unique' => __('validation.unique'),
+
             'phone.digits' => __('validation.digits'),
+            'phone.unique' => __('validation.unique'),
+
             'password.min' => __('validation.min'),
+
             'password.confirmed' => __('validation.confirmed'),
         ];
     }

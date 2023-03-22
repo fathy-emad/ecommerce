@@ -10,12 +10,17 @@ use App\Http\Controllers\Web\Auth\ {
     PasswordController,
     PasswordResetLinkController,
     VerifyEmailController,
+    SocialRegisteredUserController,
 };
 
 use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+
+    Route::get('auth/redirect/{social}', [SocialRegisteredUserController::class, 'redirectSocial']);
+
+    Route::get('auth/callback/{social}', [SocialRegisteredUserController::class, 'callbackSocial']);
 
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
@@ -40,7 +45,7 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:web')->group(function () {
 
 //    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
