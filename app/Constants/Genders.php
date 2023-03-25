@@ -2,9 +2,9 @@
 
 namespace App\Constants;
 
-use App\Interfaces\Iconstants;
+use App\Interfaces\Constants;
 
-class Genders implements Iconstants
+class Genders implements Constants
 {
     protected const Genders = [
         0 => 'male',

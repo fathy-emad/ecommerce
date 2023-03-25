@@ -162,6 +162,7 @@ return [
     */
 
     'phone' => 'This field must be start with 011 | 012 | 010 | 015',
+    'credentialsFailed' => 'These credentials do not match our records',
 
     /*
     |--------------------------------------------------------------------------

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Web\Auth;
 
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -27,8 +28,21 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'email_phone' => ['required'],
+            'password' => ['required'],
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'email_phone.required' => __('validation.required'),
+            'password.required' => __('validation.required'),
         ];
     }
 
@@ -37,16 +51,22 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(): void
+    public function authenticate(string $guard): void
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        $filed = is_numeric($this->request->get('email_phone')) ? 'phone' : 'email';
+
+        $credentials = [
+            $filed => $this->request->get('email_phone'),
+            'password' => $this->request->get('password')
+        ];
+
+        if (! Auth::guard($guard)->attempt($credentials, $this->boolean('remember'))) {
+
             RateLimiter::hit($this->throttleKey());
 
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
+            throw ValidationException::withMessages([ __('validation.credentialsFailed') ]);
         }
 
         RateLimiter::clear($this->throttleKey());

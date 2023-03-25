@@ -16,7 +16,7 @@
                 <div class="col-md mx-auto">
                     <h5> @lang('web/login.welcomeBack') </h5>
                     <h3> @lang('common.login') </h3>
-                    <p> @lang('web/login.haveNotAccount') <a href="#"> @lang('common.register') </a></p>
+                    <p> @lang('web/login.haveNotAccount') <a href="{{ route('web.register') }}"> @lang('common.register') </a></p>
                 </div>
             </div>
 
@@ -30,8 +30,8 @@
             <div class="row g-2 mb-4">
                 <div class="col-md">
                     @include('components.button', [
-                        'id' => '',
-                        'customAttrs' => '',
+                        'id' => 'facebook',
+                        'customAttrs' => 'socialAuth=facebook ',
                         'button_classes' => 'btn btn-outline-primary rounded-0 text-center w-100',
                         'button_value' => __('common.facebook'),
                         'icon' => 'bi bi-facebook',
@@ -40,8 +40,8 @@
                 </div>
                 <div class="col-md">
                     @include('components.button', [
-                        'id' => '',
-                        'customAttrs' => '',
+                        'id' => 'google',
+                        'customAttrs' => 'socialAuth=google ',
                         'button_classes' => 'btn btn-outline-danger rounded-0 text-center w-100',
                         'button_value' => __('common.google'),
                         'icon' => 'bi bi-google',
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3 text-center inputs_container_title">
+            <div class="row mb-3 text-center">
                 <div class="col-md-6 mx-auto">
                     <h6 class="border-bottom border-info" style="line-height: 0.1em; margin: 10px 0 20px;">
                         <span class="bg-white" style="padding:0 10px; "> @lang('common.or') </span>
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <form>
+            <form method="post" action="{{ route('web.login') }}"> @csrf
 
                 <div class="row mb-3">
 
@@ -73,14 +73,14 @@
                             'id' => 'email_phone',
                             'name' => 'email_phone',
                             'value' => '',
-                            'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'email_phone'),
+                            'classes' => $errors->any() ? 'is-invalid' : '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.email_phone'),
                             'data_validations' => 'required',
-                            'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["required"]),
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required"]),
 
                             //error container
-                            'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'email_phone'),
+                            'invalid_feedback_message' => implode(",", $errors->all()),
 
                             //input form text
                             'formText' => __('formInputs.formText.email_phone')
@@ -90,7 +90,7 @@
 
                 <div class="row g-2">
 
-                    <div class="col-md text-center">
+                    <div class="col-md">
                         @include('components.inputPassword', [
                             //label
                             'label' => __('formInputs.labels.password'),
@@ -100,14 +100,14 @@
                             'id' => 'password',
                             'name' => 'password',
                             'value' => '',
-                            'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'password'),
+                            'classes' => $errors->any() ? 'is-invalid' : '',
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.password'),
                             'data_validations' => 'required',
-                            'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["required"]),
+                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required"]),
 
                             //error container
-                            'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'password'),
+                            'invalid_feedback_message' => '',
 
                             //input form text
                             'formText' => '',
@@ -123,6 +123,8 @@
                         ])
                     </div>
                 </div>
+
+
                 <div class="row g-2 mb-3">
 
                     <div class="col-md">
@@ -156,7 +158,7 @@
                 <div class="row">
                     <div class="col-md border-start border-bottom border-info p-1 text-center">
                         @include('components.button', [
-                            'id' => '',
+                            'id' => 'submit',
                             'customAttrs' => '',
                             'button_classes' => 'btn-primary rounded-0 w-100',
                             'button_value' => __('common.login'),

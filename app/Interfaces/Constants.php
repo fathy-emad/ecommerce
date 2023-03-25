@@ -2,7 +2,9 @@
 
 namespace App\Interfaces;
 
-interface Iconstants
+use ReturnTypeWillChange;
+
+interface Constants
 {
     public static function getArray(): array;
 

@@ -15,7 +15,7 @@
         <div class="row mb-5 text-center">
             <div class="col-md mx-auto">
                 <h3> @lang('web/register.createYourAccount') </h3>
-                <p> @lang('web/register.haveAccount') <a href="#"> @lang('common.login') </a></p>
+                <p> @lang('web/register.haveAccount') <a href="{{ route('web.login') }}"> @lang('common.login') </a></p>
             </div>
         </div>
 
@@ -72,14 +72,14 @@
                         'id' => 'first_name',
                         'name' => 'first_name',
                         'value' => '',
-                        'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'first_name'),
+                        'classes' => Helpers::getValidationErrorClass($errors, 'first_name'),
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.first_name'),
                         'data_validations' => 'min.string:4,max.string:25',
-                        'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["min.string", "max.string"]),
+                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string", "max.string"]),
 
                         //error container
-                        'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'first_name'),
+                        'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'first_name'),
 
                         //input form text
                         'formText' => ''
@@ -97,14 +97,14 @@
                         'id' => 'last_name',
                         'name' => 'last_name',
                         'value' => '',
-                        'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'last_name'),
+                        'classes' => Helpers::getValidationErrorClass($errors, 'last_name'),
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.last_name'),
                         'data_validations' => 'min.string:4,max.string:25',
-                        'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["min.string", "max.string"]),
+                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string", "max.string"]),
 
                         //error container
-                        'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'last_name'),
+                        'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'last_name'),
 
                         //input form text
                         'formText' => ''
@@ -125,14 +125,14 @@
                         'id' => 'email',
                         'name' => 'email',
                         'value' => '',
-                        'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'email'),
+                        'classes' => Helpers::getValidationErrorClass($errors, 'email'),
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.email'),
                         'data_validations' => 'email',
-                        'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["email"]),
+                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["email"]),
 
                         //error container
-                        'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'email'),
+                        'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'email'),
 
                         //input form text
                         'formText' => __('formInputs.formText.email')
@@ -153,14 +153,14 @@
                         'id' => 'phone',
                         'name' => 'phone',
                         'value' => '',
-                        'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'phone'),
+                        'classes' => Helpers::getValidationErrorClass($errors, 'phone'),
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.phone'),
                         'data_validations' => 'digits:11,phone',
-                        'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["digits", "phone"]),
+                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["digits", "phone"]),
 
                         //error container
-                        'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'phone'),
+                        'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'phone'),
 
                         //input form text
                         'formText' => __('formInputs.formText.phone')
@@ -181,14 +181,14 @@
                         'id' => 'password',
                         'name' => 'password',
                         'value' => '',
-                        'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'password'),
+                        'classes' => Helpers::getValidationErrorClass($errors, 'password'),
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.password'),
                         'data_validations' => 'min.string:8,confirmed:password_confirmation',
-                        'validationErrorMessages' => \App\Helpers\Helpers::getValidationErrorMessages(["min.string", "confirmed"]),
+                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string", "confirmed"]),
 
                         //error container
-                        'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'password'),
+                        'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'password'),
 
                         //input form text
                         'formText' => '',
@@ -214,14 +214,14 @@
                         'id' => 'password_confirmation',
                         'name' => 'password_confirmation',
                         'value' => '',
-                        'classes' => \App\Helpers\Helpers::getValidationErrorClass($errors, 'password'),
+                        'classes' => '',
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.password_confirmation'),
                         'data_validations' => '',
                         'validationErrorMessages' => '',
 
                         //error container
-                        'invalid_feedback_message' => \App\Helpers\Helpers::getValidationErrorMessage($errors, 'password'),
+                        'invalid_feedback_message' => '',
 
                         //input form text
                         'formText' => '',

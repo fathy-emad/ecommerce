@@ -4,6 +4,4 @@ $('[socialAuth]').on("click", function () {
     var aTag = document.createElement('a');
     aTag.setAttribute('href',"auth/redirect/" + social);
     aTag.click();
-
-
 });

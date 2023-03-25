@@ -33,14 +33,12 @@ class Helpers
 
     public static function getValidationErrorMessage(object $errors, string $inputName): string
     {
-        if ($errors->get($inputName)) return implode(', ', $errors->get($inputName));
-        return '';
+
+        return $errors->get($inputName) ? implode(', ', $errors->get($inputName)) : '';
     }
 
     public static function getValidationErrorClass(object $errors, string $inputName): string
     {
-        if ($errors->get($inputName)) return 'is-invalid';
-
-        return '';
+        return $errors->get($inputName) ? 'is-invalid' : '';
     }
 }
