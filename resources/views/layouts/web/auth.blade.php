@@ -21,6 +21,7 @@ $dir = $lang == 'en' ? 'ltr' : 'rtl';
     @endif
     <link rel="stylesheet" href="{{ asset('css/_vendor/pageLoader.css') }}">
     <link rel="stylesheet" href="{{ asset('css/_vendor/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/web/login-register.css') }}">
     @yield('styles')
 
     <!-- Scripts -->
@@ -62,8 +63,7 @@ $dir = $lang == 'en' ? 'ltr' : 'rtl';
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/_vendor/pageLoader.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/_vendor/validator.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/_vendor/main.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/web/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/web/login-register.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

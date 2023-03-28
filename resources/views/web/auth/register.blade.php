@@ -2,9 +2,7 @@
 
 @section('title', 'Sign up')
 
-@section('styles')
-<link rel="stylesheet" href="{{ asset('css/web/auth/login-register.css') }}">
-@endsection
+@section('styles') @endsection
 
 @section('content')
 
@@ -313,6 +311,4 @@
 </div>
 @endsection
 
-@section('scripts')
-
-@endsection
+@section('scripts') @endsection
