@@ -8,6 +8,7 @@ return [
 
     'register' => 'التسجيل',
     'login' => 'الدخول',
+    'logout' => 'الخروج',
 
     'male' => 'ذكر',
     'female' => 'انثى',
@@ -17,4 +18,12 @@ return [
     'languages' => 'اللغات',
     'arabic' => 'العربيه',
     'english' => 'english',
+
+    'allCategories' => 'كل التصنيفات',
+
+    'account' => 'الحساب',
+    'profile' => 'حسابى',
+    'orders' => 'الطلبات',
+    'saved' => 'المفضله',
+    'cart' => 'العربه',
 ];

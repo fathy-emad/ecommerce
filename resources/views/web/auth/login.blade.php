@@ -27,7 +27,7 @@
 
             <div class="row g-2 mb-4">
                 <div class="col-md">
-                    @include('components.button', [
+                    @include('components.inputs.button', [
                         'id' => 'facebook',
                         'customAttrs' => 'socialAuth=facebook ',
                         'button_classes' => 'btn btn-outline-primary rounded-0 text-center w-100',
@@ -37,7 +37,7 @@
                     ])
                 </div>
                 <div class="col-md">
-                    @include('components.button', [
+                    @include('components.inputs.button', [
                         'id' => 'google',
                         'customAttrs' => 'socialAuth=google ',
                         'button_classes' => 'btn btn-outline-danger rounded-0 text-center w-100',
@@ -61,7 +61,7 @@
                 <div class="row mb-3">
 
                     <div class="col-md">
-                        @include('components.input', [
+                        @include('components.inputs.input', [
                             //label
                             'label' => __('formInputs.labels.email_phone'),
                             'label_classes' => '',
@@ -89,7 +89,7 @@
                 <div class="row g-2">
 
                     <div class="col-md">
-                        @include('components.inputPassword', [
+                        @include('components.inputs.inputPassword', [
                             //label
                             'label' => __('formInputs.labels.password'),
                             'label_classes' => '',
@@ -126,7 +126,7 @@
                 <div class="row g-2 mb-3">
 
                     <div class="col-md">
-                        @include('components.inputCheck', [
+                        @include('components.inputs.inputCheck', [
                             //label
                             'label' => __("formInputs.labels.remember"),
                             'label_classes' => '',
@@ -155,7 +155,7 @@
 
                 <div class="row">
                     <div class="col-md border-start border-bottom border-info p-1 text-center">
-                        @include('components.button', [
+                        @include('components.inputs.button', [
                             'id' => 'submit',
                             'customAttrs' => '',
                             'button_classes' => 'btn-primary rounded-0 w-100',
@@ -177,8 +177,7 @@
             </div>
 
             <div class="row mb-1 p-3">
-                <div class="col-md image_signup rounded-1" style="background-image: url({{ asset('images/web/auth/image_signup.jpg') }})">
-                    <div class="image_signup_free_space"></div>
+                <div class="col-md rounded-1" style="background-image: url({{ asset('images/web/auth/image_signup.jpg') }})">
                     <div class="p-1">
                         <ul>
                             <li> A 20% off voucher for your next purchase </li>

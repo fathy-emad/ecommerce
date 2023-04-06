@@ -16,7 +16,7 @@ use App\Http\Controllers\Web\Auth\ {
 use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('guest')->group(function () {
+Route::middleware('guest:web')->group(function () {
 
     Route::get('auth/redirect/{social}', [SocialRegisteredUserController::class, 'redirectSocial']);//
 

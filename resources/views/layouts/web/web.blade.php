@@ -12,6 +12,10 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('fonts/bootstrap-icons/bootstrap-icons.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
 
     <!-- Styles -->
     @if($lang == 'en')
@@ -22,14 +26,13 @@
     <link rel="stylesheet" href="{{ asset('css/_vendor/pageLoader.css') }}">
     <link rel="stylesheet" href="{{ asset('css/_vendor/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/web/main.css') }}">
-    @yield('styles')
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/_vendor/bootstrap.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/_vendor/jquery-3.6.3.min.js') }}"></script>
 
 </head>
-<body dir="{{ $dir }}">
+<body dir="{{ $dir }}" style="height: 5000px">
 
 <div id='loadhalaman'>
     <div class='loadball'></div>
@@ -37,14 +40,15 @@
     <p class="h6 text-muted">LOADING...</p>
 </div>
 
-@include('components.navbar-web')
+@include('components.web.navbar-web')
 
 @yield('content')
+
+@include('components.web.footer-web')
 
 <!-- Scripts -->
 <script type="text/javascript" src="{{ asset('js/_vendor/pageLoader.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/_vendor/main.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/web/main.js') }}"></script>
-@yield('scripts')
 </body>
 </html>

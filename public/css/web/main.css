@@ -1,2 +1,32 @@
-body { background-color: #f5f5f5; }
-.nav-links-hover:hover{ color:#0d6efd; font-weight: bolder }
+/* header and nav bar styles */
+.navbar .nav-links-hover:hover{ color:#0d6efd !important; }
+.navbar .nav-links-active{ color:#0d6efd !important; font-weight: bolder }
+.navbar .nav-link { font-size: 22px; }
+.navbar .nav-link .badge { font-size: 10px; }
+.navbar .megamenu{ padding: 1rem; }
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+    .navbar .has-megamenu{position:static!important;}
+    .navbar .megamenu{left:0; right:0; width:100%; margin-top:0;}
+}
+
+/* footer styles */
+.content { height: 70vh; }
+.footer-web a{ text-decoration: none !important; }
+.footer-web { padding: 7rem 0; font-family: "Poppins", sans-serif; }
+.footer-web .footer-site-logo { text-align: center; font-size: 2rem; font-weight: 500; }
+.footer-web .footer-site-logo a { color: #0d6efd; }
+.footer-web .nav-links { padding: 0; margin: 0; }
+.footer-web .nav-links li { display: inline-block; }
+.footer-web .nav-links li a { padding: 10px; color: #000; }
+.footer-web .nav-links li a:hover { color: #0d6efd; }
+.footer-web .social h3 { font-weight: bold; font-size: 18px; color: #000; }
+.footer-web .social ul li { display: inline-block; }
+.footer-web .social ul li a { display: inline-block; padding: 10px; }
+.footer-web .social ul li.in a { color: #df588a; }
+.footer-web .social ul li.tw a { color: #15b8ff; }
+.footer-web .social ul li.fb a { color: #3742d0; }
+.footer-web .social ul li.dr a { color: #fa38c1; }
+.footer-web .social ul li.pin a { color: #dd4d5a; }
+.footer-web .copyright { color: #999999; }

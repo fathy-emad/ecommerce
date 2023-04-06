@@ -8,6 +8,7 @@ return [
 
     'register' => 'Sign up',
     'login' => 'Sign in',
+    'logout' => 'Logout',
 
     'male' => 'Male',
     'female' => 'Female',
@@ -17,4 +18,12 @@ return [
     'languages' => 'Languages',
     'arabic' => 'العربيه',
     'english' => 'english',
+
+    'allCategories' => 'All categories',
+    'account' => 'Account',
+    'profile' => 'Profile',
+    'orders' => 'Orders',
+    'saved' => 'Saved',
+    'cart' => 'Cart',
+
 ];
