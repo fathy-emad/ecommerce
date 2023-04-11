@@ -17,12 +17,12 @@
 
                 <div class="social mb-4">
                     <h3>Follow us.</h3>
-                    <ul class="list-unstyled">
-                        <li class="in"><a href="#"><span class="icon-instagram"></span></a></li>
-                        <li class="fb"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="tw"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="pin"><a href="#"><span class="icon-pinterest"></span></a></li>
-                        <li class="dr"><a href="#"><span class="icon-dribbble"></span></a></li>
+                    <ul class="list-unstyled text-center">
+                        <li class="in"><a href="#"><span class="bi bi-instagram"></span></a></li>
+                        <li class="fb"><a href="#"><span class="bi bi-facebook"></span></a></li>
+                        <li class="tw"><a href="#"><span class="bi bi-twitter"></span></a></li>
+                        <li class="you"><a href="#"><span class="bi bi-youtube"></span></a></li>
+                        <li class="ti"><a href="#"><span class="bi bi-tiktok"></span></a></li>
                     </ul>
                 </div>
 

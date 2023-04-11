@@ -32,7 +32,7 @@
     <script type="text/javascript" src="{{ asset('js/_vendor/jquery-3.6.3.min.js') }}"></script>
 
 </head>
-<body dir="{{ $dir }}" style="height: 5000px">
+<body dir="{{ $dir }}">
 
 <div id='loadhalaman'>
     <div class='loadball'></div>
@@ -40,11 +40,11 @@
     <p class="h6 text-muted">LOADING...</p>
 </div>
 
-@include('components.web.navbar-web')
+@include('components.web.header')
 
 @yield('content')
 
-@include('components.web.footer-web')
+@include('components.web.footer')
 
 <!-- Scripts -->
 <script type="text/javascript" src="{{ asset('js/_vendor/pageLoader.js') }}"></script>

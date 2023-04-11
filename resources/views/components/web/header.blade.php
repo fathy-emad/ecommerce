@@ -1,5 +1,5 @@
-<div class="w-100 bg-primary bg-gradient bg-opacity-75">
-    <div class="container row m-auto text-light text-center">
+<div class="w-100 bg-primary bg-gradient bg-opacity-75  d-none d-md-block">
+    <div class="container row m-auto text-light text-center p-3">
         <div class="col-md-3"><i class="bi bi-telephone-fill"></i><span> +2 01141661776</span></div>
         <div class="col-md-3"><i class="bi bi-whatsapp"></i><span> +2 01141661776</span></div>
         <div class="col-md-3"><i class="bi bi-envelope-at-fill"></i><span>fatyemad@gmail.com</span></div>
@@ -8,6 +8,7 @@
             <i class="bi bi-tiktok"></i>
             <i class="bi bi-twitter"></i>
             <i class="bi bi-instagram"></i>
+            <i class="bi bi-youtube"></i>
         </div>
     </div>
 </div>
@@ -42,7 +43,7 @@
                 </form>
             </div>
             <div>
-                <ul class="navbar-nav mb-0">
+                <ul class="navbar-nav mb-0 list-group-horizontal justify-content-sm-around">
 
                     <li class="nav-item me-2">
                         <a class="nav-link nav-links-hover position-relative" href="#">
@@ -124,8 +125,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
-        <ul class="navbar-nav d-flex">
-            <li class="nav-item dropdown has-megamenu me-2 me-lg-0 d-md-inline-block">
+        <ul class="navbar-nav w-100 text-center">
+            <li class="nav-item dropdown has-megamenu me-2 me-lg-0">
                 <a class="nav-link nav-links-hover" href="#" data-bs-toggle="dropdown" data-bs-active=dropdown>
                     <i class="bi bi-stack"></i>
                     <span>Categories</span>
@@ -188,22 +189,22 @@
                 </div> <!-- dropdown-mega-menu.// -->
             </li>
 
-            <li class="nav-item me-2 me-lg-0 d-md-inline-block">
+            <li class="nav-item me-2 me-lg-0">
                 <a class="nav-link  nav-links-hover" href="#">men</a>
             </li>
-            <li class="nav-item me-2 me-lg-0 d-md-inline-block">
+            <li class="nav-item me-2 me-lg-0">
                 <a class="nav-link  nav-links-hover" href="#">women</a>
             </li>
-            <li class="nav-item me-2 me-lg-0 d-md-inline-block">
+            <li class="nav-item me-2 me-lg-0">
                 <a class="nav-link  nav-links-hover" href="#">child</a>
             </li>
-            <li class="nav-item me-2 me-lg-0 d-md-inline-block">
+            <li class="nav-item me-2 me-lg-0">
                 <a class="nav-link  nav-links-hover" href="#">about</a>
             </li>
-            <li class="nav-item me-2 me-lg-0 d-md-inline-block">
+            <li class="nav-item me-2 me-lg-0">
                 <a class="nav-link nav-links-hover" href="#">Blog</a>
             </li>
-            <li class="nav-item me-2 me-lg-0 d-md-inline-block">
+            <li class="nav-item me-2 me-lg-0">
                 <a class="nav-link nav-links-hover" href="#">Contact</a>
             </li>
         </ul>
