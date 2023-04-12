@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="bg-white mt-3 mb-3 p-2 shadow">
+<div class="container mt-3 mb-4">
+    <div class="bg-white p-2 shadow">
 
         <div id="carouselExampleCaptions" class="carousel carousel-fade slide" data-bs-touch="true" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -9,21 +9,21 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="1000">
-                    <img src="https://placehold.co/1280x400/000000/FFFFFF/png" class="d-block w-100 rounded-2" alt="...">
+                    <img src="https://placehold.co/1200x450/000000/FFFFFF/png" class="d-block w-100 rounded-2" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>First slide label</h5>
                         <p>Some representative placeholder content for the first slide.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <img src="https://placehold.co/1280x400/000000/FFFFFF/png" class="d-block w-100 rounded-1" alt="...">
+                    <img src="https://placehold.co/1200x450/000000/FFFFFF/png" class="d-block w-100 rounded-1" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Second slide label</h5>
                         <p>Some representative placeholder content for the second slide.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://placehold.co/1280x400/000000/FFFFFF/png" class="d-block w-100 rounded-1" alt="...">
+                    <img src="https://placehold.co/1200x450/000000/FFFFFF/png" class="d-block w-100 rounded-1" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Third slide label</h5>
                         <p>Some representative placeholder content for the third slide.</p>
