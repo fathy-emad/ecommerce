@@ -42,7 +42,7 @@
         right: 0px;
     }
 
-    .{{ "#$id" }} .swiper-slide {
+    {{ "#$id" }} .swiper-slide {
         -webkit-transition: .2s all ease;
         -o-transition: .2s all ease;
         transition: .2s all ease;
@@ -57,9 +57,12 @@
 
 <div class="container mt-3 mb-3">
     <div class="bg-white shadow rounded-1 p-2" id="{{ $id }}">
-        <div class="text-start p-3 bg-primary bg-gradient mb-2 rounded-1">
-            <h5 class="text-light mb-0"> {{ $title }} </h5>
-        </div>
+
+        @if($title)
+            <div class="text-start p-3 bg-primary bg-gradient mb-2 rounded-1">
+                <h5 class="text-light mb-0"> {{ $title }} </h5>
+            </div>
+        @endif
         <div class="swiper {{ $id }} p-1">
             <div class="swiper-wrapper">
                 @for($i = 1; $i <= 10; $i++)
