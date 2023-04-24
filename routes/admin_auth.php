@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\Web\Auth\ {
+use App\Http\Controllers\Admin\Auth\ {
     AuthenticatedSessionController,
-    RegisteredUserController,
     ConfirmablePasswordController,
     EmailVerificationNotificationController,
     EmailVerificationPromptController,
@@ -10,18 +9,12 @@ use App\Http\Controllers\Web\Auth\ {
     PasswordController,
     PasswordResetLinkController,
     VerifyEmailController,
-    SocialRegisteredUserController,
 };
 
-//use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('guest:web')->group(function () {
+Route::middleware('guest:admin')->group(function () {
 
-    Route::get('auth/redirect/{social}', [SocialRegisteredUserController::class, 'redirectSocial']);
-    Route::get('auth/callback/{social}', [SocialRegisteredUserController::class, 'callbackSocial']);
-    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('register', [RegisteredUserController::class, 'store']);
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])->name('password.request');
@@ -30,11 +23,8 @@ Route::middleware('guest:web')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
 });
 
-Route::middleware('auth:web')->group(function () {
+Route::middleware('auth:admin')->group(function () {
 
-//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');
     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
@@ -50,5 +40,4 @@ Route::middleware('auth:web')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
-
 

@@ -95,14 +95,14 @@
                         'id' => 'last_name',
                         'name' => 'last_name',
                         'value' => '',
-                        'classes' => Helpers::getValidationErrorClass($errors, 'last_name'),
+                        'classes' => getValidationErrorClass($errors, 'last_name'),
                         'customAttrs' => '',
                         'placeholder' => __('formInputs.placeholders.last_name'),
                         'data_validations' => 'min.string:4,max.string:25',
-                        'validationErrorMessages' => Helpers::getValidationErrorMessages(["min.string", "max.string"]),
+                        'validationErrorMessages' => getValidationErrorMessages(["min.string", "max.string"]),
 
                         //error container
-                        'invalid_feedback_message' => Helpers::getValidationErrorMessage($errors, 'last_name'),
+                        'invalid_feedback_message' => getValidationErrorMessage($errors, 'last_name'),
 
                         //input form text
                         'formText' => ''

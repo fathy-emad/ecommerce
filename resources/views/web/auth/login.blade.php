@@ -75,7 +75,7 @@
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.email_phone'),
                             'data_validations' => 'required',
-                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required"]),
+                            'validationErrorMessages' => getValidationErrorMessages(["required"]),
 
                             //error container
                             'invalid_feedback_message' => implode(",", $errors->all()),
@@ -102,7 +102,7 @@
                             'customAttrs' => '',
                             'placeholder' => __('formInputs.placeholders.password'),
                             'data_validations' => 'required',
-                            'validationErrorMessages' => Helpers::getValidationErrorMessages(["required"]),
+                            'validationErrorMessages' => getValidationErrorMessages(["required"]),
 
                             //error container
                             'invalid_feedback_message' => '',

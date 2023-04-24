@@ -18,14 +18,32 @@ Route::view('/', 'web.website');
 
 Route::get('/changeLocale/{locale}', [changeLocaleController::class, 'changeLocale'])->name('changeLocale');
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
+//Route::get('/routes', function () {
 //
-//})->middleware(['auth', 'verified'])->name('dashboard');
+//    $routes = collect(Route::getRoutes())->map(function ($route) { return $route->methods()[0] . " / " . $route->uri();});
+//
+//
+//    Route::current()->uri();
+//
+//   foreach ($routes AS $route) {
+//       var_dump($route);
+//   }
+//});
+
+//Route::fallback(function () {
+//
+//});
 
 Route::name('web.')->group(function (){
 
     require __DIR__.'/web_auth.php';
+});
+
+Route::prefix('admin')->name('admin.')->group(function (){
+
+    Route::view('dashboard', 'admin.dashboard')->name('dashboard')->middleware('auth:admin');
+
+    require __DIR__.'/admin_auth.php';
 });
 
 
