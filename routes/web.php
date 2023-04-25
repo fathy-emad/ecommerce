@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'web.website');
 
 Route::get('/changeLocale/{locale}', [changeLocaleController::class, 'changeLocale'])->name('changeLocale');
 
@@ -35,6 +34,8 @@ Route::get('/changeLocale/{locale}', [changeLocaleController::class, 'changeLoca
 //});
 
 Route::name('web.')->group(function (){
+
+    Route::view('/', 'web.website')->name('website');
 
     require __DIR__.'/web_auth.php';
 });

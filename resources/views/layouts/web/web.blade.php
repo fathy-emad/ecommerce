@@ -12,9 +12,9 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('fonts/bootstrap-icons/bootstrap-icons.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('fonts/googleapis/roboto.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/googleapis/poppins.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/googleapis/source.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
 
     <!-- Styles -->
@@ -25,8 +25,8 @@
     @endif
     <link rel="stylesheet" href="{{ asset('css/_vendor/pageLoader.css') }}">
     <link rel="stylesheet" href="{{ asset('css/_vendor/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/_vendor/swiper.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/web/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/_vendor/swiper.css') }}"/>
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/_vendor/bootstrap.bundle.min.js') }}"></script>
@@ -44,6 +44,8 @@
 
 @include('components.web.header')
 
+{{--@php var_dump(auth()->user()) @endphp--}}
+
 @yield('content')
 
 @include('components.web.footer')
@@ -51,6 +53,6 @@
 <!-- Scripts -->
 <script type="text/javascript" src="{{ asset('js/_vendor/pageLoader.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/_vendor/main.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/web/main.js') }}"></script>
+
 </body>
 </html>

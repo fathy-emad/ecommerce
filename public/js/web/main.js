@@ -1,7 +1,9 @@
-$("[data-bs-active=dropdown]").on('show.bs.dropdown', function (event) {
-    $(event.target).addClass('nav-links-active');
-});
 
-$("[data-bs-active=dropdown]").on('hidden.bs.dropdown', function (event) {
-    $(event.target).removeClass('nav-links-active');
+//Handling all social media registration or login redirection
+$('[socialAuth]').on("click", function () {
+    let social = $(this).attr('socialAuth');
+
+    var aTag = document.createElement('a');
+    aTag.setAttribute('href',"auth/redirect/" + social);
+    aTag.click();
 });

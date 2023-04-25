@@ -28,7 +28,10 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate('admin');
 
-        $request->session()->regenerate();
+        if (! Auth::guard('web')->check()){
+
+            $request->session()->regenerate();
+        }
 
         return redirect()->route('admin.dashboard');
     }
@@ -40,10 +43,12 @@ class AuthenticatedSessionController extends Controller
     {
         Auth::guard('admin')->logout();
 
-        $request->session()->invalidate();
+        if (! Auth::guard('web')->check()){
 
-        $request->session()->regenerateToken();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
 
-        return redirect('admin.login');
+        return redirect()->route('admin.login');
     }
 }

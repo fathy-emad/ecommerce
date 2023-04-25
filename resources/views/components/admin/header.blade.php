@@ -1,214 +1,203 @@
-<div class="w-100 bg-primary bg-gradient bg-opacity-75  d-none d-md-block">
-    <div class="container row m-auto text-light text-center p-3">
-        <div class="col-md-3"><i class="bi bi-telephone-fill"></i><span> +2 01141661776</span></div>
-        <div class="col-md-3"><i class="bi bi-whatsapp"></i><span> +2 01141661776</span></div>
-        <div class="col-md-3"><i class="bi bi-envelope-at-fill"></i><span>fatyemad@gmail.com</span></div>
-        <div class="col-md-3">
-            <i class="bi bi-facebook"></i>
-            <i class="bi bi-tiktok"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-instagram"></i>
-            <i class="bi bi-youtube"></i>
+<!-- Topbar -->
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Topbar Search -->
+    <form
+        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                   aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
         </div>
-    </div>
-</div>
+    </form>
 
-<nav class="navbar navbar-expand-lg bg-light sticky-top">
-    <div class="container m-auto mb-3 mt-3">
-        <button class="navbar-toggler mb-3 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
 
-        <a class="navbar-brand me-lg-5" href="#">
-            <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" alt="" height="35">
-        </a>
-
-        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-            <div class="w-100 margin-bottom">
-                <form class="d-flex" role="search">
+        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                 aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
                     <div class="input-group">
-                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">@lang('common.allCategories')</button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item nav-links-hover" href="#">Action</a></li>
-                            <li><a class="dropdown-item nav-links-hover" href="#">Another action</a></li>
-                            <li><a class="dropdown-item nav-links-hover" href="#">Something else here</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item nav-links-hover" href="#">Separated link</a></li>
-                        </ul>
-                        <input type="search" class="form-control" aria-label="Text input with dropdown button">
-                        <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+                        <input type="text" class="form-control bg-light border-0 small"
+                               placeholder="Search for..." aria-label="Search"
+                               aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
-            <div>
-                <ul class="navbar-nav mb-0 list-group-horizontal justify-content-sm-around">
+        </li>
 
-                    <li class="nav-item me-2">
-                        <a class="nav-link nav-links-hover position-relative" href="#">
-                            <i class="bi bi-cart-fill"></i>
-                            <span class="position-absolute translate-middle badge rounded-pill bg-danger">
-                                99
-                            </span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item me-2">
-                        <a class="nav-link nav-links-hover position-relative" href="#">
-                            <i class="bi bi-bell-fill"></i>
-                            <span class="position-absolute translate-middle badge rounded-pill bg-danger">
-                                99
-                            </span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item me-2">
-                        <a class="nav-link nav-links-hover position-relative" href="#">
-                            <i class="bi bi-heart-fill"></i>
-                            <span class="position-absolute translate-middle badge rounded-pill bg-danger">
-                                99
-                            </span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item me-2">
-                        <a class="nav-link"
-                           @php
-                            $lang =  app()->getLocale() == 'ar' ? 'en' : 'ar';
-                            $flag = $lang == 'en' ? 'language-en' : 'country-eg';
-                           @endphp
-                           href="{{ route('changeLocale', ['locale' => $lang]) }}">
-                            <img src="{{ asset("flags/blade-flags/$flag.svg") }}" width="25" height="25"/>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item dropdown me-2">
-                        <a class="nav-link nav-links-hover" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="30"
-                                 alt="" loading="lazy" />
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            @auth('web')
-                                <li><a class="dropdown-item nav-links-hover" href="#">
-                                        <i class="bi bi-person-lines-fill"></i>&ensp;@lang('common.profile')</a></li>
-                                <li><a class="dropdown-item nav-links-hover" href="#"><i class="bi bi-basket-fill"></i>
-                                        &ensp;@lang('common.orders')</a></li>
-                                <li><a class="dropdown-item nav-links-hover" href="#">
-                                        <i class="bi bi-suit-heart-fill"></i>&ensp;@lang('common.saved')</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropdown-item">
-                                    <form method="post" action="{{ route('web.logout') }}">@csrf
-                                        <button type="submit" class="btn btn-block btn-sm btn-primary w-100">
-                                            <i class="bi bi-box-arrow-left"></i>&ensp;@lang('common.logout')</button>
-                                    </form>
-                                </li>
-                            @endauth
-                            @guest('web')
-                                <li class="dropdown-item"><a class="btn btn-block btn-sm btn-primary w-100"
-                                     href="{{ route('web.login') }}"><i class="bi bi-box-arrow-in-right"></i>&ensp;@lang('common.login')</a></li>
-                            @endguest
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container">
-        <ul class="navbar-nav w-100 text-center">
-            <li class="nav-item dropdown has-megamenu me-2 me-lg-0">
-                <a class="nav-link nav-links-hover" href="#" data-bs-toggle="dropdown" data-bs-active=dropdown>
-                    <i class="bi bi-stack"></i>
-                    <span>Categories</span>
-                </a>
-                <div class="dropdown-menu megamenu container-fluid text-center border-0 shadow" role="menu">
-                    <div class="row g-3">
-                        <div class="col-lg-3 col-6">
-                            <div class="col-megamenu">
-                                <h6 class="title">Title Menu One</h6>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                </ul>
-                            </div>  <!-- col-megamenu.// -->
-                        </div><!-- end col-3 -->
-                        <div class="col-lg-3 col-6">
-                            <div class="col-megamenu">
-                                <h6 class="title">Title Menu Two</h6>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                </ul>
-                            </div>  <!-- col-megamenu.// -->
-                        </div><!-- end col-3 -->
-                        <div class="col-lg-3 col-6">
-                            <div class="col-megamenu">
-                                <h6 class="title">Title Menu Three</h6>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                </ul>
-                            </div>  <!-- col-megamenu.// -->
+        <!-- Nav Item - Alerts -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+            </a>
+            <!-- Dropdown - Alerts -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                 aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                    Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-primary">
+                            <i class="fas fa-file-alt text-white"></i>
                         </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="col-megamenu">
-                                <h6 class="title">Title Menu Four</h6>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                    <li><a href="#" class="dropdown-item nav-links-hover">Custom Menu</a></li>
-                                </ul>
-                            </div>  <!-- col-megamenu.// -->
-                        </div><!-- end col-3 -->
-                    </div><!-- end row -->
-                </div> <!-- dropdown-mega-menu.// -->
-            </li>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 12, 2019</div>
+                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-success">
+                            <i class="fas fa-donate text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 7, 2019</div>
+                        $290.29 has been deposited into your account!
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-warning">
+                            <i class="fas fa-exclamation-triangle text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 2, 2019</div>
+                        Spending Alert: We've noticed unusually high spending for your account.
+                    </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            </div>
+        </li>
 
-            <li class="nav-item me-2 me-lg-0">
-                <a class="nav-link  nav-links-hover" href="#">men</a>
-            </li>
-            <li class="nav-item me-2 me-lg-0">
-                <a class="nav-link  nav-links-hover" href="#">women</a>
-            </li>
-            <li class="nav-item me-2 me-lg-0">
-                <a class="nav-link  nav-links-hover" href="#">child</a>
-            </li>
-            <li class="nav-item me-2 me-lg-0">
-                <a class="nav-link  nav-links-hover" href="#">about</a>
-            </li>
-            <li class="nav-item me-2 me-lg-0">
-                <a class="nav-link nav-links-hover" href="#">Blog</a>
-            </li>
-            <li class="nav-item me-2 me-lg-0">
-                <a class="nav-link nav-links-hover" href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
+        <!-- Nav Item - Messages -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                 aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                    Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                             alt="...">
+                        <div class="status-indicator bg-success"></div>
+                    </div>
+                    <div class="font-weight-bold">
+                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                            problem I've been having.</div>
+                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                             alt="...">
+                        <div class="status-indicator"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">I have the photos that you ordered last month, how
+                            would you like them sent to you?</div>
+                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                             alt="...">
+                        <div class="status-indicator bg-warning"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                            the progress so far, keep up the good work!</div>
+                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                             alt="...">
+                        <div class="status-indicator bg-success"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                            told me that people say this to all dogs, even if they aren't good...</div>
+                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                    </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+            </div>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                <img class="img-profile rounded-circle"
+                     src="img/undraw_profile.svg">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                 aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+
+    </ul>
 
 </nav>
-
+<!-- End of Topbar -->

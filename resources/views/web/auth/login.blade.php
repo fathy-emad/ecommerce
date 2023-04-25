@@ -2,8 +2,6 @@
 
 @section('title', 'Sign in')
 
-@section('styles') @endsection
-
 @section('content')
 
     <div class="row p-3 mt-3">
@@ -197,4 +195,3 @@
     </div>
 @endsection
 
-@section('scripts') @endsection
