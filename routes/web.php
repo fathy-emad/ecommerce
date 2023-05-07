@@ -17,17 +17,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/changeLocale/{locale}', [changeLocaleController::class, 'changeLocale'])->name('changeLocale');
 
-//Route::get('/routes', function () {
-//
-//    $routes = collect(Route::getRoutes())->map(function ($route) { return $route->methods()[0] . " / " . $route->uri();});
-//
-//
-//    Route::current()->uri();
-//
-//   foreach ($routes AS $route) {
-//       var_dump($route);
-//   }
-//});
+Route::get('/routes', function () {
+
+    $routes = collect(Route::getRoutes())->map(function ($route) { return $route->methods()[0] . " / " . $route->uri();});
+
+
+    Route::current()->uri();
+
+   foreach ($routes AS $route) {
+       var_dump($route);
+   }
+});
 
 //Route::fallback(function () {
 //
@@ -42,7 +42,13 @@ Route::name('web.')->group(function (){
 
 Route::prefix('admin')->name('admin.')->group(function (){
 
-    Route::view('dashboard', 'admin.dashboard')->name('dashboard')->middleware('auth:admin');
+    Route::middleware('auth:admin')->group(function () {
+        Route::view('dashboard', 'admin.dashboard')->name('dashboard');
+
+        require __DIR__.'/admin_profile.php';
+
+
+    });
 
     require __DIR__.'/admin_auth.php';
 });

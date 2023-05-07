@@ -1,6 +1,7 @@
 <?php
 
 use App\Constants\Constants;
+use Illuminate\Support\Facades\Route;
 
 
 /**
@@ -82,5 +83,46 @@ if (! function_exists('getConstant')) {
     function getConstant(string $constant): Constants
     {
         return new Constants($constant);
+    }
+}
+
+/**
+ *
+ * get sidebar menu routes
+ *
+ * @return array
+ */
+if (! function_exists('getSideMenu')) {
+    function getSideMenu(): array
+    {
+
+        $policies = ['profile'];
+
+        $routes = collect(Route::getRoutes())->map(function ($route) {
+
+            $explode = explode('/', $route->uri());
+            $guard = $explode[0] ?? '';
+            $main = $explode[1] ?? '';
+            $sub = $explode[2] ?? '';
+            $page = $explode[3] ?? '';
+            $param = $explode[4] ?? '';
+
+            if($route->methods()[0] == 'GET' && $guard == 'admin'){
+                return [
+                    'main' => $main,
+                    'sub' => $sub,
+                    'page' => $page,
+                    'param' => $param
+                ];
+            }
+        });
+
+        foreach ($routes AS $route) {
+            if ($route && in_array($route['main'], $policies)){
+                $return[$route['main']][$route['sub']][] = $route['page'];
+            }
+        }
+
+        return $return;
     }
 }

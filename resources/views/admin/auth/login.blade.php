@@ -1,4 +1,4 @@
-@extends('layouts.admin.auth')
+@extends('_layouts.admin.auth')
 
 @section('title', 'Sign in')
 
@@ -20,7 +20,7 @@
                 <div class="row mb-3">
 
                     <div class="col-md-6 m-auto">
-                        @include('components.inputs.input', [
+                        @include('_components/inputs/input', [
                             //label
                             'label' => __('formInputs.labels.email'),
                             'label_classes' => '',
@@ -48,7 +48,7 @@
                 <div class="row g-2">
 
                     <div class="col-md-6 m-auto">
-                        @include('components.inputs.inputPassword', [
+                        @include('_components/inputs/inputPassword', [
                             //label
                             'label' => __('formInputs.labels.password'),
                             'label_classes' => '',
@@ -84,7 +84,7 @@
 
                 <div class="row mt-3">
                     <div class="col-md-6 m-auto border-start border-bottom border-info p-1 text-center">
-                        @include('components.inputs.button', [
+                        @include('_components/inputs/button', [
                             'id' => 'submit',
                             'customAttrs' => '',
                             'button_classes' => 'btn-primary rounded-0 w-100',
