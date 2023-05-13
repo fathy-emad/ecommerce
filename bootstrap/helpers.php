@@ -3,7 +3,6 @@
 use App\Constants\Constants;
 use Illuminate\Support\Facades\Route;
 
-
 /**
  *
  * get all validation error message of rules from lang file to pass them to js validator
@@ -95,9 +94,7 @@ if (! function_exists('getConstant')) {
 if (! function_exists('getSideMenu')) {
     function getSideMenu(): array
     {
-
-        $policies = ['profile'];
-
+        $policies = ['profile', 'systemAdministrator'];
         $routes = collect(Route::getRoutes())->map(function ($route) {
 
             $explode = explode('/', $route->uri());
@@ -107,7 +104,8 @@ if (! function_exists('getSideMenu')) {
             $page = $explode[3] ?? '';
             $param = $explode[4] ?? '';
 
-            if($route->methods()[0] == 'GET' && $guard == 'admin'){
+            if($route->methods()[0] == 'GET' && $guard == 'admin')
+            {
                 return [
                     'main' => $main,
                     'sub' => $sub,
@@ -118,11 +116,12 @@ if (! function_exists('getSideMenu')) {
         });
 
         foreach ($routes AS $route) {
-            if ($route && in_array($route['main'], $policies)){
+
+            if ($route && in_array($route['main'], $policies))
+            {
                 $return[$route['main']][$route['sub']][] = $route['page'];
             }
         }
-
         return $return;
     }
 }

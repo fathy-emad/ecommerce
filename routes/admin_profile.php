@@ -13,8 +13,6 @@ Route::prefix('profile')->name('profile.')->group(function (){
         Route::get('edit', [MyAccountController::class, 'edit'])->name('edit');
     });
 
-
-
 });
 
 

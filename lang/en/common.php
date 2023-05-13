@@ -26,4 +26,7 @@ return [
     'saved' => 'Saved',
     'cart' => 'Cart',
 
+    'create' => 'Create',
+    'update' => 'Update'
+
 ];

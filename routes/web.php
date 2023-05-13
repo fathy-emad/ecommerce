@@ -43,10 +43,11 @@ Route::name('web.')->group(function (){
 Route::prefix('admin')->name('admin.')->group(function (){
 
     Route::middleware('auth:admin')->group(function () {
+
         Route::view('dashboard', 'admin.dashboard')->name('dashboard');
 
         require __DIR__.'/admin_profile.php';
-
+        require __DIR__.'/admin_systemAdministrator.php';
 
     });
 

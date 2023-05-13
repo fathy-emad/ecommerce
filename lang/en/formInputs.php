@@ -10,7 +10,9 @@ return [
         'password' => 'Password',
         'password_confirmation' => 'Password confirmation',
         'email_phone' => 'Email / Phone',
-        'remember' => 'Remember me'
+        'remember' => 'Remember me',
+        'title' => 'Title',
+        'permissions' => 'Permissions',
     ],
 
     'placeholders' => [
@@ -20,7 +22,8 @@ return [
         'phone' => 'Please type your phone number',
         'password' => 'Please type your password',
         'password_confirmation' => 'Please type your password confirmation',
-        'email_phone' => 'Please type your email or phone number'
+        'email_phone' => 'Please type your email or phone number',
+        'title' => 'Please type title'
     ],
 
     'formText' => [
