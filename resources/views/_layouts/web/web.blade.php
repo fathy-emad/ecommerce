@@ -42,8 +42,6 @@
 
 @include('_components.web.header')
 
-{{--@php var_dump(auth()->user()) @endphp--}}
-
 @yield('content')
 
 @include('_components.web.footer')
